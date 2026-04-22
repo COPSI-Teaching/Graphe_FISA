@@ -58,7 +58,28 @@ public class DirectedNode extends AbstractNode {
 	public List<Arc> getArcPred() {
 		return this.arcPred;
 	}
-    		
+
+	/**
+     * @return the list of successors of the current node this
+     */
+    public List<DirectedNode> getSuccs() {
+    	List<DirectedNode> succs = new LinkedList<DirectedNode>();
+    	for(Arc a : this.arcSucc) {
+    		succs.add(a.getSecondNode());
+    	}
+        return succs;
+    }
+
+    /**
+     * @return the list of predecessors of the current node this
+     */
+    public List<DirectedNode> getPreds() {
+    	List<DirectedNode> preds = new LinkedList<DirectedNode>();
+    	for(Arc a : this.arcPred) {
+    		preds.add(a.getFirstNode());
+    	}
+        return preds;
+    }
 	
     // ------------------------------------------
     // 				Methods
