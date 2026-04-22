@@ -35,7 +35,17 @@ public class UndirectedNode extends AbstractNode {
         return this.incidentEdges;
     }
 
-
+	/**
+     * @return the list of neighbors of the current node this
+     */
+    public List<UndirectedNode> getNeighbours() {
+    	List<UndirectedNode> neigh = new LinkedList<UndirectedNode>();
+    	for(Edge ed : this.incidentEdges) {
+    		neigh.add(ed.getSecondNode());
+    	}
+        return neigh;
+    }
+	
     /**
      * @return the number of neighbors of node this
      */
